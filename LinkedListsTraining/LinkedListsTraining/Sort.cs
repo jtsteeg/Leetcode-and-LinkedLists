@@ -10,7 +10,18 @@ namespace LinkedListsTraining
     {
         public static void Bubble(int[] arr)
         {
-            throw new NotImplementedException();
+            for(var i = 0; i < arr.Length - 1; i++)
+            {
+                for (var k = 0; k < arr.Length - 1 - i; k++)
+                {
+                    if (arr[k] > arr[k + 1])
+                    {
+                        var temp = arr[k];
+                        arr[k] = arr[k + 1];
+                        arr[k + 1] = temp;
+                    }
+                }
+            }
         }
 
         public static void Selection(int[] arr)

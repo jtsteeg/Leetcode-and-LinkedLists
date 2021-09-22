@@ -53,11 +53,11 @@ namespace LinkedListTraining_tests
         public void Bubble_OddAmountOfItems_ReturnsItemsSorted()
         {
             var arr = new int[] { 2, 1 , 4 , 8 , 9 };
-            var desired = new int[] { 1, 2, 4, 8, 9 };
+            var expected = new int[] { 1, 2, 4, 8, 9 };
 
             Sort.Bubble(arr);
 
-            CollectionAssert.AreEqual(arr, desired);
+            CollectionAssert.AreEqual(expected, arr);
         }
 
         [TestMethod]
