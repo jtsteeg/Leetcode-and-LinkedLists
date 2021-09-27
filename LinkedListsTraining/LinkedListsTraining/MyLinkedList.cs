@@ -46,7 +46,21 @@ namespace LinkedListsTraining
         /** Append a node of val val to the last element of the linked list. */
         public void AddAtTail(int val)
         {
-            throw new NotImplementedException();
+            if (Head == null)
+            {
+                AddAtHead(val);
+            }
+            else
+            {
+                ListNode current = Head;
+                while (current.next != null)
+                {
+                    current = current.next;
+                }
+
+                ListNode Node = new ListNode(val);
+                current.next = Node;
+            }
         }
 
         /** Add a node of val val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
