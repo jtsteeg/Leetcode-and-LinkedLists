@@ -74,5 +74,15 @@ namespace LinkedListTraining_tests
             var actual = sut.Get(1);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Get_EmptyLinkedList_ReturnNegativeOne()
+        {
+            var expected = -1;
+            var sut = new MyLinkedList();
+
+            var actual = sut.Get(0);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

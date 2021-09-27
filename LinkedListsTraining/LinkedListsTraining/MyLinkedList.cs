@@ -20,6 +20,7 @@ namespace LinkedListsTraining
         public int Get(int index)
         {
             ListNode current = Head;
+            if(current == null) { return -1; }
 
                 for (int i = 0; i < index; i++)
                 {
