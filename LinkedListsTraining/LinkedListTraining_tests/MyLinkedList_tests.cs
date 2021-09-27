@@ -103,7 +103,6 @@ namespace LinkedListTraining_tests
             var input = 2;
             var input2 = 4;
             var input3 = 8;
-
             var expected = 2;
             var sut = new MyLinkedList();
 
@@ -122,7 +121,6 @@ namespace LinkedListTraining_tests
             var input = 2;
             var input2 = 4;
             var input3 = 8;
-
             var expected = 8;
             var sut = new MyLinkedList();
 
@@ -139,8 +137,6 @@ namespace LinkedListTraining_tests
         {
             var index = 1;
             var input = 6;
-
-
             var expected = 6;
             var sut = new MyLinkedList();
 
@@ -159,14 +155,27 @@ namespace LinkedListTraining_tests
         {
             var index = 0;
             var input = 6;
-
-
             var expected = 6;
             var sut = new MyLinkedList();
 
             sut.AddAtHead(8);
             sut.AddAtHead(4);
             sut.AddAtHead(2);
+            sut.AddAtIndex(index, input);
+
+
+            var actual = sut.Get(index);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AddAtIndex_AddToEmptyLinkedList_UpdatesHead()
+        {
+            var index = 0;
+            var input = 6;
+            var expected = 6;
+            var sut = new MyLinkedList();
+
             sut.AddAtIndex(index, input);
 
 
@@ -202,8 +211,6 @@ namespace LinkedListTraining_tests
         {
             var index = 5;
             var input = 6;
-
-
             var expected = 8;
             var sut = new MyLinkedList();
 
@@ -214,6 +221,88 @@ namespace LinkedListTraining_tests
 
 
             var actual = sut.Get(2);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void DeleteAtIndex_DeleteMiddleIndex_NextIndexIsNowMiddle()
+        {
+            var index = 1;
+            var expected = 8;
+            var sut = new MyLinkedList();
+
+            sut.AddAtHead(8);
+            sut.AddAtHead(4);
+            sut.AddAtHead(2);
+            sut.DeleteAtIndex(index);
+
+
+            var actual = sut.Get(index);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void DeleteAtIndex_DeleteHead_SecondIndexIsNowHead()
+        {
+            var index = 0;
+            var expected = 4;
+            var sut = new MyLinkedList();
+
+            sut.AddAtHead(8);
+            sut.AddAtHead(4);
+            sut.AddAtHead(2);
+            sut.DeleteAtIndex(index);
+
+
+            var actual = sut.Get(index);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void DeleteAtIndex_DeleteTail_ReturnNegativeOne()
+        {
+            var index = 2;
+            var expected = -1;
+            var sut = new MyLinkedList();
+
+            sut.AddAtHead(8);
+            sut.AddAtHead(4);
+            sut.AddAtHead(2);
+            sut.DeleteAtIndex(index);
+
+
+            var actual = sut.Get(index);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void DeleteAtIndex_DeleteInvalidIndex_TailValueNoChange()
+        {
+            var index = 12;
+            var expected = 8;
+            var sut = new MyLinkedList();
+
+            sut.AddAtHead(8);
+            sut.AddAtHead(4);
+            sut.AddAtHead(2);
+            sut.DeleteAtIndex(index);
+
+
+            var actual = sut.Get(2);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void DeleteAtIndex_DeleteFromEmptyLinkedList_LinkedListRemainsEmpty()
+        {
+            var index = 1;
+            var expected = -1;
+            var sut = new MyLinkedList();
+
+            sut.DeleteAtIndex(index);
+
+
+            var actual = sut.Get(index);
             Assert.AreEqual(expected, actual);
         }
     }

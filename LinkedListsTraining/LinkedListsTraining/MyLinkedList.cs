@@ -93,7 +93,6 @@ namespace LinkedListsTraining
                  CurrentNode = CurrentNode.next;
                 }
             }
-
                 InsertedNode.next = CurrentNode;
                 PreviousNode.next = InsertedNode;
                 done:;
@@ -103,8 +102,32 @@ namespace LinkedListsTraining
         /** Delete the index-th node in the linked list, if the index is valid. */
         public void DeleteAtIndex(int index)
         {
-            throw new NotImplementedException();
-
+            ListNode currentNode = Head;
+            ListNode previousNode = currentNode;
+            if (Head == null)
+            {
+                goto done;
+            } else if(index == 0)
+            {
+                Head = Head.next;
+            }
+            {
+                for (int i = 0; i < index; i++)
+                {
+                    if (currentNode.next == null)
+                    {
+                        goto done;
+                    }
+                    else
+                    {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next;
+                    }
+                }
+                previousNode.next = currentNode.next;
+            
+            }
+        done:;
         }
     }
 }
