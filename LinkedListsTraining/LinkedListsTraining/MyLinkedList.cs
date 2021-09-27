@@ -13,19 +13,33 @@ namespace LinkedListsTraining
         /** Initialize your data structure here. */
         public MyLinkedList()
         {
-            throw new NotImplementedException();
+            ListNode Head = new ListNode();
         }
 
         /** Get the val of the index-th node in the linked list. If the index is invalid, return -1. */
         public int Get(int index)
         {
-            throw new NotImplementedException();
+            ListNode current = Head;
+
+                for (int i = 0; i < index; i++)
+                {
+                    if(current.next != null)
+                    {
+                         current = current.next;
+                    } else
+                    {
+                    return -1;
+                    }            
+                }
+                return current.val;
         }
 
         /** Add a node of val val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
         public void AddAtHead(int val)
         {
-            throw new NotImplementedException();
+            ListNode Node = new ListNode(val);
+            Node.next = Head;
+            Head = Node;
         }
 
         /** Append a node of val val to the last element of the linked list. */
