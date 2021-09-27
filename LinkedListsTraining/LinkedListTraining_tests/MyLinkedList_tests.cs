@@ -133,5 +133,88 @@ namespace LinkedListTraining_tests
             var actual = sut.Get(2);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void AddAtIndex_ThreeNumbers_AddAtIndexOne()
+        {
+            var index = 1;
+            var input = 6;
+
+
+            var expected = 6;
+            var sut = new MyLinkedList();
+
+            sut.AddAtHead(8);
+            sut.AddAtHead(4);
+            sut.AddAtHead(2);
+            sut.AddAtIndex(index, input);
+
+
+            var actual = sut.Get(index);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AddAtIndex_AddAtHeadIndex_UpdatesHead()
+        {
+            var index = 0;
+            var input = 6;
+
+
+            var expected = 6;
+            var sut = new MyLinkedList();
+
+            sut.AddAtHead(8);
+            sut.AddAtHead(4);
+            sut.AddAtHead(2);
+            sut.AddAtIndex(index, input);
+
+
+            var actual = sut.Get(index);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AddAtIndex_AddAtTailIndex_UpdatesTail()
+        {
+            var index = 5;
+            var input = 6;
+
+
+            var expected = 6;
+            var sut = new MyLinkedList();
+
+            sut.AddAtHead(8);
+            sut.AddAtHead(4);
+            sut.AddAtHead(2);
+            sut.AddAtHead(2);
+            sut.AddAtHead(2);
+            sut.AddAtHead(2);
+            sut.AddAtIndex(index, input);
+
+
+            var actual = sut.Get(index);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AddAtIndex_AddAtInvalidIndex_NoChange()
+        {
+            var index = 5;
+            var input = 6;
+
+
+            var expected = 8;
+            var sut = new MyLinkedList();
+
+            sut.AddAtHead(8);
+            sut.AddAtHead(4);
+            sut.AddAtHead(2);
+            sut.AddAtIndex(index, input);
+
+
+            var actual = sut.Get(2);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

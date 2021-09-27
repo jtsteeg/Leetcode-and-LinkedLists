@@ -66,7 +66,38 @@ namespace LinkedListsTraining
         /** Add a node of val val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
         public void AddAtIndex(int index, int val)
         {
-            throw new NotImplementedException();
+            if(index == 0)
+            {
+                AddAtHead(val);
+            }
+            else 
+            { 
+            ListNode InsertedNode = new ListNode(val);
+            ListNode CurrentNode = Head;
+            ListNode PreviousNode = CurrentNode;
+
+            for (int i = 0; i < index; i++)
+            {
+                if (CurrentNode.next == null && i == (index-1))
+                {
+                    CurrentNode.next = InsertedNode;
+                    goto done;
+                }
+                else if (CurrentNode.next == null && i != (index-1))
+                {
+                    goto done;     
+                }
+                else 
+                {
+                 PreviousNode = CurrentNode;
+                 CurrentNode = CurrentNode.next;
+                }
+            }
+
+                InsertedNode.next = CurrentNode;
+                PreviousNode.next = InsertedNode;
+                done:;
+            }
         }
 
         /** Delete the index-th node in the linked list, if the index is valid. */
