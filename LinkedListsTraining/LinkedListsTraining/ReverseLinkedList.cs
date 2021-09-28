@@ -8,21 +8,19 @@ namespace LinkedListsTraining.ReverseLinkedList
 {
     public class Solution
     {
-        public ListNode ReverseList(ListNode head)
-        {
-            ListNode prev = null;
-            ListNode curr = head;
-            ListNode next = null;
-
-            while(curr != null)
+        ListNode previousNode = null;
+        public ListNode ReverseList (ListNode head)
+        {           
+            if (head != null)
             {
-                next = curr.next;
-                curr.next = prev;
-                prev = curr;
-                curr = next;
-            }
-
-            return prev;
+                var temporaryNode = head.next;
+                head.next = previousNode;
+                previousNode = head;
+                head = temporaryNode;
+                ReverseList(head);
+            }           
+            return previousNode;
         }
+
     }
 }

@@ -133,7 +133,7 @@ namespace LinkedListTraining_tests
         }
 
         [TestMethod]
-        public void AddAtIndex_ThreeNumbers_AddAtIndexOne()
+        public void AddAtIndex_AddAtIndexOne_CanReturnNewNumber()
         {
             var index = 1;
             var input = 6;
